@@ -6,10 +6,11 @@ public class ImagesMove : MonoBehaviour
 {
     int[] posX = new int[] { 0, -18, -36, -54 };
     int idx = 0;
+    public AudioSource[] audio;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audio[idx].Play();
     }
 
     // Update is called once per frame
@@ -20,6 +21,7 @@ public class ImagesMove : MonoBehaviour
             if (idx < posX.Length - 1)
             {
                 idx++;
+                audio[idx].Play();
             }
         }
         if (Input.GetKeyUp(KeyCode.LeftArrow))
@@ -27,6 +29,7 @@ public class ImagesMove : MonoBehaviour
             if (idx > 0)
             {
                 idx--;
+                audio[idx].Play();
             }
         }
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(posX[idx], 
